@@ -131,51 +131,66 @@ int main()
 {
     int opcao=0; //definindo variável
     int reset=1;
+    char senhadigitada[10]="a";
+    int comparar;
 
-    for(reset=1;reset=1;) //
+    printf("\t<<<<< REGISTRO DE ALUNOS EBAC >>>>>\n\n");
+    printf("Login de administrador!\n\nDigite sua senha:");
+    scanf("%s",senhadigitada);
+    comparar = strcmp(senhadigitada, "admin");
+
+    if(comparar == 0)
     {
-        system("clear");
-        char pause;
 
-        setlocale(LC_ALL,"pt_BR_UTF-8");
-        //definindo o idioma, para o sistema entender a acentuação
-
-
-        printf("\t<<<<< CARTÓRIO EBAC >>>>>\n\n"); //início do menu
-        printf("Escolha a opção desejada do menu:\n\n");
-        printf("\t1 - Registrar Novo Aluno\n");
-        printf("\t2 - Consultar Lista de Alunos\n");
-        printf("\t3 - Deletar nomes\n");
-        printf("\t4 - Sair do sistema\n\n");
-        printf("Opção:"); //fim do menu
-
-        scanf("%d",&opcao); //armazenar a escolha do usuário
-        system("clear"); //limpar página após comando
-
-        switch(opcao)
+        for(reset=1;reset=1;)
         {
-            case 1:
-            registro();
-            break;
+            system("clear");
+            char pause;
 
-            case 2:
-            consulta();
-            break;
+            setlocale(LC_ALL,"pt_BR_UTF-8");
+            //definindo o idioma, para o sistema entender a acentuação
 
-            case 3:
-            deletar();
-            break;
 
-            case 4:
-            printf("Obrigado por utilizar o sistema, até logo!\n");
-            return 0;
-            break;
+            printf("\t<<<<< REGISTRO DE ALUNOS EBAC >>>>>\n\n"); //início do menu
+            printf("Escolha a opção desejada do menu:\n\n");
+            printf("\t1 - Registrar Novo Aluno\n");
+            printf("\t2 - Consultar Lista de Alunos\n");
+            printf("\t3 - Deletar nomes\n");
+            printf("\t4 - Sair do sistema\n\n");
+            printf("Opção:"); //fim do menu
 
-            default:
-            pause = getchar();
-            printf("Essa opção não está disponível!\n");
-            pause = getchar();
-            break;
-        }//fim da seleção
+            scanf("%d",&opcao); //armazenar a escolha do usuário
+            system("clear"); //limpar página após comando
+
+            switch(opcao)
+            {
+                case 1:
+                registro();
+                break;
+
+                case 2:
+                consulta();
+                break;
+
+                case 3:
+                deletar();
+                break;
+
+                case 4:
+                printf("Obrigado por utilizar o sistema, até logo!\n");
+                return 0;
+                break;
+
+                default:
+                pause = getchar();
+                printf("Essa opção não está disponível!\n");
+                pause = getchar();
+                break;
+            }//fim da seleção
+        }
     }
+
+    else
+        printf("Senha Incorreta! Tente novamente");
+
 }
